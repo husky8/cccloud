@@ -8,7 +8,7 @@ def hello(request):
     return HttpResponse(str(random.randint(0,100000000)))
 def alirobot(request):
     if(request.method == 'POST'):
-        #print("the POST method")
+        print("the POST method")
         concat = request.POST
         postBody = json.loads(request.body.decode())
         #print(concat)
