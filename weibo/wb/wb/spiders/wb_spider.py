@@ -1,6 +1,8 @@
 # encoding = "utf-8"
+import time
 import scrapy
 from bs4 import BeautifulSoup
+from tools.usemysql import executesql
 
 
 class WbSpider(scrapy.spiders.Spider):
@@ -22,9 +24,10 @@ class WbSpider(scrapy.spiders.Spider):
             t = BeautifulSoup(rhtml, 'lxml')
 
             index = t.find("td", class_="td-01").string
-            keyword = t.find("td", class_="td-02").a.string
+            title = t.find("td", class_="td-02").a.string
             value = t.find("td", class_="td-02").span
             value = str(value).replace("<span>","").replace("</span>","")
             # print(str(value).replace("<span>","").replace("</span>",""))
-            print(index, keyword,value)
-            print("-"*80)
+            executesql("""INSERT INTO weibohothistory VALUES({id},{title},{index} ,{value} now() );""".format(
+                id = hash(time.time()),title=title,index=index,value=value
+            ))
