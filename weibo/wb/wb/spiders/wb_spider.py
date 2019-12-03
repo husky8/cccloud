@@ -26,6 +26,7 @@ class WbSpider(scrapy.spiders.Spider):
 
             index = t.find("td",class_ = "td-01").string
             keyword = t.find("td",class_="td-02").a.string
+            value = t.find("span").string
             # href = t.find("p",class_="star_name").a.get("herf")
             # isnew = t.find("p",class_="star_name").i
             # if isnew != None:
@@ -33,7 +34,7 @@ class WbSpider(scrapy.spiders.Spider):
             # else:
             #     isnew_str = ""
             # searchs = t.find("p",class_="star_name").span.string
-            print(index,keyword
+            print(index,keyword,value
                   # keyword,href,isnew_str,searchs
                   )
             print("-*100")
