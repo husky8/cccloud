@@ -37,3 +37,4 @@ class WbSpider(scrapy.spiders.Spider):
             executesql("""INSERT INTO weibohothistory VALUES("{id}","{title}",{index} ,now() ,{value});""".format(
                 id = hash(time.time()),title=title,index=index,value=value
             ))
+            time.sleep(0.1)
