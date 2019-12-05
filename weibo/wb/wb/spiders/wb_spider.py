@@ -34,6 +34,6 @@ class WbSpider(scrapy.spiders.Spider):
             value = t.find("td", class_="td-02").span
             value = str(value).replace("<span>","").replace("</span>","")
             # print(str(value).replace("<span>","").replace("</span>",""))
-            executesql("""INSERT INTO weibohothistory VALUES({id},{title},{index} ,{value} now() );""".format(
+            executesql("""INSERT INTO weibohothistory VALUES("{id}","{title}",{index} ,now() ,{value});""".format(
                 id = hash(time.time()),title=title,index=index,value=value
             ))
