@@ -1,12 +1,8 @@
 # encoding = "utf-8"
 import os
 import sys
-os.chdir(os.path.dirname(sys.argv[0]))
-project_dir = os.path.split(os.getcwd())
-project_dir = os.path.split(project_dir[0])
-sys.path.append(project_dir[0])
-os.path.abspath("C:\Users\Administrator\cccloud")
-os.chdir(project_dir[0])
+
+sys.path.append(r"C:\Users\Administrator\cccloud")
 import time
 import scrapy
 from bs4 import BeautifulSoup
