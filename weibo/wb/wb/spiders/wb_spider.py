@@ -32,6 +32,8 @@ class WbSpider(scrapy.spiders.Spider):
             t = BeautifulSoup(rhtml, 'lxml')
 
             index = t.find("td", class_="td-01").string
+            if index is None:
+                continue
             title = t.find("td", class_="td-02").a.string
             value = t.find("td", class_="td-02").span
             value = str(value).replace("<span>","").replace("</span>","")
