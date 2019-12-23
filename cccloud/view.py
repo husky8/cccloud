@@ -1,11 +1,12 @@
 ﻿# -*-coding:utf-8 -*-
 from django.http import HttpResponse
+from django.shortcuts import render
 import random
 import json
 from cccloud.alirobotapi import Send
  
 def hello(request):
-    return HttpResponse(str(random.randint(0,100000000)))
+    return render(str(request,"index.html"))
 def alirobot(request):
     if(request.method == 'POST'):
         print("the POST method")
