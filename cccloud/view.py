@@ -6,7 +6,7 @@ import json
 from cccloud.alirobotapi import Send
  
 def hello(request):
-    return render(str(request,"index.html"))
+    return render(request,"index.html")
 def alirobot(request):
     if(request.method == 'POST'):
         print("the POST method")
