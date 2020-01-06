@@ -9,18 +9,20 @@ from tools.usegit import gitpull
 def hello(request):
     return render(request,"index.html")
 def pullgit(request):
-    print("the POST method")
-    if request.method == 'GET':
-        name = request.GET.get('name', default='cccode')
-        path = ""
-        if name == "cccode":
-            path = r"C:\cccode\cccode"
-        if name == "cccloud":
-            path = r"C:\Users\Administrator\cccloud"
-        if path != "":
-            s = gitpull(path)
-        return HttpResponse("mabey ok")
-    return HttpResponse("mabey not ok")
+    try:
+        if request.method == 'GET':
+            name = request.GET.get('name', default='cccode')
+            path = ""
+            if name == "cccode":
+                path = r"C:\cccode\cccode"
+            if name == "cccloud":
+                path = r"C:\Users\Administrator\cccloud"
+            if path != "":
+                s = gitpull(path)
+                if s == "success":
+                    return HttpResponse("mabey ok")
+    except:    
+        return HttpResponse("mabey not ok")
 def alirobot(request):
     if(request.method == 'POST'):
         print("the POST method")
