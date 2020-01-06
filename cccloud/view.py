@@ -8,7 +8,7 @@ from tools.usegit import GitRepository
  
 def hello(request):
     return render(request,"index.html")
-def pullgit(request):
+def gitpull(request):
     try:
         if request.method == 'GET':
             name = request.GET.get('name', default='cccode')
