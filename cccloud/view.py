@@ -18,10 +18,9 @@ def pullgit(request):
         if name == "cccloud":
             path = r"C:\Users\Administrator\cccloud"
         if path != "":
-            gitpull(path)
+            s = gitpull(path)
         return HttpResponse("mabey ok")
-
-    return render(request,"index.html")
+    return HttpResponse("mabey not ok")
 def alirobot(request):
     if(request.method == 'POST'):
         print("the POST method")
