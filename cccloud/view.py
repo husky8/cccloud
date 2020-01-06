@@ -4,7 +4,7 @@ from django.shortcuts import render
 import random
 import json
 from cccloud.alirobotapi import Send
-from tools.usegit import gitpull
+from tools.usegit import GitRepository
  
 def hello(request):
     return render(request,"index.html")
@@ -12,16 +12,18 @@ def pullgit(request):
     try:
         if request.method == 'GET':
             name = request.GET.get('name', default='cccode')
-            path = ""
+            localpath = ""
+            repo_url = ""
             if name == "cccode":
-                path = r"C:\cccode\cccode"
+                localpath = r"C:\cccode\cccode"
+                repo_url = r"https://github.com/husky8/cccode.git"
             if name == "cccloud":
-                path = r"C:\Users\Administrator\cccloud"
-            if path != "":
-                s = gitpull(path)
-                if s == "success":
-                    return HttpResponse("mabey ok")
-    except:    
+                localpath = r"C:\Users\Administrator\cccloud"
+                repo_url = r"https://github.com/husky8/cccloud.git"
+            if localpath != "":
+                GitRepository(localpath,repo_url).pull()
+
+    except:
         return HttpResponse("mabey not ok")
 def alirobot(request):
     if(request.method == 'POST'):
