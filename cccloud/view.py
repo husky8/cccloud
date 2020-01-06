@@ -4,8 +4,21 @@ from django.shortcuts import render
 import random
 import json
 from cccloud.alirobotapi import Send
+from tools.usegit import gitpull
  
 def hello(request):
+    return render(request,"index.html")
+def pullgit(request):
+    if request.method == 'GET':
+        name = request.GET.get('name', default='cccode')
+        path = ""
+        if name == "cccode":
+            path = r"C:\cccode\cccode"
+        if name == "cccloud":
+            path = r"C:\Users\Administrator\cccloud"
+        if path != "":
+            gitpull(path)
+
     return render(request,"index.html")
 def alirobot(request):
     if(request.method == 'POST'):

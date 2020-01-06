@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^favicon.ico$', RedirectView.as_view(url=r'static/favicon.jpeg')),
     path(r'alirobot/.*?', view.alirobot),
+    path(r'gitpull/.*?', view.gitpull),
     url(r'^$', view.hello),
 
 ]
