@@ -22,7 +22,7 @@ def gitpull(request):
                 repo_url = r"https://github.com/husky8/cccloud.git"
             if localpath != "":
                 GitRepository(localpath,repo_url).pull()
-                return HttpResponse("mabey not ok")
+                return HttpResponse("mabey ok")
     except:
         return HttpResponse("mabey not ok")
 def alirobot(request):
