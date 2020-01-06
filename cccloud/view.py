@@ -9,6 +9,7 @@ from tools.usegit import gitpull
 def hello(request):
     return render(request,"index.html")
 def pullgit(request):
+    print("the POST method")
     if request.method == 'GET':
         name = request.GET.get('name', default='cccode')
         path = ""
@@ -16,6 +17,7 @@ def pullgit(request):
             path = r"C:\cccode\cccode"
         if name == "cccloud":
             path = r"C:\Users\Administrator\cccloud"
+        print(name,path)
         if path != "":
             gitpull(path)
 
