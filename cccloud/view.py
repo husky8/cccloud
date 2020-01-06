@@ -22,9 +22,10 @@ def gitpull(request):
                 repo_url = r"https://github.com/husky8/cccloud.git"
             if localpath != "":
                 GitRepository(localpath,repo_url).pull()
-                return HttpResponse("mabey ok")
+                return HttpResponse("may be ok")
+        return HttpResponse("may be miss")
     except:
-        return HttpResponse("mabey not ok")
+        return HttpResponse("may be not ok")
 def alirobot(request):
     if(request.method == 'POST'):
         print("the POST method")
