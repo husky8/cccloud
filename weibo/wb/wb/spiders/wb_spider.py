@@ -5,7 +5,6 @@ import sys
 sys.path.append(r"C:\Users\Administrator\cccloud")
 import time
 import scrapy
-import date
 import datetime
 from bs4 import BeautifulSoup
 from tools.usemysql import executesql
