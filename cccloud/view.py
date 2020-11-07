@@ -15,10 +15,10 @@ def gitpull(request):
             localpath = ""
             repo_url = ""
             if name == "cccode":
-                localpath = r"C:\cccode\cccode"
+                localpath = r"C:\cccode"
                 repo_url = r"https://github.com/husky8/cccode.git"
             if name == "cccloud":
-                localpath = r"C:\Users\Administrator\cccloud"
+                localpath = r"C:\cccloud"
                 repo_url = r"https://github.com/husky8/cccloud.git"
             if localpath != "":
                 GitRepository(localpath,repo_url).pull()
